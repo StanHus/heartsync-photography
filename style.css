@@ -274,6 +274,7 @@ body.light-mode .toggle-button::after {
 }
 
 .pricing-plan {
+  position: relative;
   background: var(--black);
   color: var(--white);
   padding: 20px;
@@ -282,6 +283,7 @@ body.light-mode .toggle-button::after {
   width: 300px;
   box-shadow: 0 4px 8px var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding-bottom: 50px;
 }
 
 .pricing-plan:hover {
@@ -322,6 +324,10 @@ body.light-mode .toggle-button::after {
   color: var(--white);
   text-decoration: none;
   transition: background-color 0.3s ease;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .signup-button:hover {
@@ -434,4 +440,81 @@ body.light-mode .toggle-button::after {
   .navbar .nav-links > * {
     width: 25%;
   }
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--faded);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: var(--black);
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px var(--shadow);
+  animation: growAndPop 0.3s ease;
+  text-align: center;
+  color: var(--white);
+}
+
+.popup-content h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: var(--white);
+}
+
+.popup-content p {
+  font-size: 16px;
+  color: var(--white);
+}
+
+.popup-content label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: var(--white);
+}
+
+.popup-content input[type="text"],
+.popup-content input[type="email"],
+.popup-content input[type="date"],
+.popup-content button {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.popup-content button {
+  background-color: #ff5733;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup-content button:hover {
+  background-color: #e64a19;
+}
+
+.hidden {
+  display: none;
+}
+
+#confirmationMessage {
+  font-size: 18px;
+  color: var(--white);
 }

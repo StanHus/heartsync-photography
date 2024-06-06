@@ -11,6 +11,9 @@
           overflow-y: scroll;
         }
       }
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -38,7 +41,9 @@
           <li>40 Professionally Edited Photos</li>
           <li>1 Location Scouting</li>
         </ul>
-        <a href="#" class="signup-button">Book Now</a>
+        <a href="#" class="signup-button" data-package="Basic Package">
+          Request
+        </a>
       </div>
 
       <div class="pricing-plan">
@@ -53,7 +58,7 @@
           <li>80 Professionally Edited Photos</li>
           <li>2 Location Scouting</li>
         </ul>
-        <a href="#" class="signup-button">Book Now</a>
+        <a href="#" class="signup-button" data-package="Pro Package">Request</a>
       </div>
 
       <div class="pricing-plan">
@@ -69,8 +74,73 @@
           <li>200 Professionally Edited Photos</li>
           <li>3 Location Scouting</li>
         </ul>
-        <a href="#" class="signup-button">Book Now</a>
+        <a href="#" class="signup-button" data-package="Elite Package">
+          Request
+        </a>
       </div>
     </div>
+
+    <div class="popup-overlay hidden" id="popupForm">
+      <div class="popup-content">
+        <h2>Book a Photoshoot</h2>
+        <form name="contact" netlify id="contactForm">
+          <p>
+            <label>
+              Name
+              <input type="text" name="name" required />
+            </label>
+          </p>
+          <p>
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+          </p>
+          <p>
+            <label>
+              Preferred Date Range
+              <input type="text" name="date_range" required />
+            </label>
+          </p>
+          <p>
+            <button type="submit">Send</button>
+          </p>
+          <p id="confirmationMessage" class="hidden">
+            We will contact you shortly.
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const popupForm = document.getElementById("popupForm");
+        const contactForm = document.getElementById("contactForm");
+        const confirmationMessage = document.getElementById(
+          "confirmationMessage"
+        );
+
+        document.querySelectorAll(".signup-button").forEach((button) => {
+          button.addEventListener("click", function (event) {
+            event.preventDefault();
+            popupForm.classList.remove("hidden");
+          });
+        });
+
+        contactForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          confirmationMessage.classList.remove("hidden");
+          setTimeout(() => {
+            popupForm.classList.add("hidden");
+          }, 2000);
+        });
+
+        popupForm.addEventListener("click", function (event) {
+          if (event.target === popupForm) {
+            popupForm.classList.add("hidden");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
