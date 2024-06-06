@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script>
+      // set the theme from localStorage
+      const theme = localStorage.getItem("theme");
+      if (theme) {
+        document.body.classList.add(`${theme}-mode`);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const themeToggle = document.getElementById("themeToggle");
+        const body = document.body;
+
+        themeToggle.addEventListener("click", () => {
+          body.classList.toggle("light-mode");
+          // toggle localStorage
+          if (body.classList.contains("light-mode")) {
+            localStorage.setItem("theme", "light");
+          } else {
+            localStorage.setItem("theme", "dark");
+          }
+        });
+      });
+    </script>
+    <nav class="navbar">
+      <div class="logo">Evelita Simkute</div>
+      <div class="nav-links">
+        <a href="/" class="active">Projects</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/about">About Me</a>
+        <div class="toggle-container">
+          <div class="toggle-button" id="themeToggle"></div>
+        </div>
+      </div>
+    </nav>
+    <div class="cm-slider__wrapper">
+      <div class="cm-slider" id="slider"></div>
+    </div>
+    <noscript>
+      <style>
+        @media (hover: hover) {
+          .cm-slider {
+            position: static;
+            transform: none;
+            height: 100%;
+            align-items: center;
+          }
+          .cm-slider > :first-child {
+            margin-left: 5vmin;
+          }
+          .cm-slider > :last-child {
+            display: flex;
+          }
+          .cm-slider > :last-child::after {
+            content: "";
+            flex: 0 0 5vmin;
+          }
+          .cm-slider__wrapper {
+            overflow-x: scroll;
+          }
+          .cm-slider__image {
+            object-position: center;
+          }
+        }
+      </style>
+    </noscript>
+    <script src="script.js" defer></script>
+  </body>
+</html>
