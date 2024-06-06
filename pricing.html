@@ -102,6 +102,12 @@
               <input type="text" name="date_range" required />
             </label>
           </p>
+          <p style="display: none">
+            <label>
+              Package
+              <input type="text" name="package" required />
+            </label>
+          </p>
           <p>
             <button type="submit">Send</button>
           </p>
@@ -124,6 +130,9 @@
           button.addEventListener("click", function (event) {
             event.preventDefault();
             popupForm.classList.remove("hidden");
+            // set package value
+            contactForm.querySelector('input[name="package"]').value =
+              event.target.dataset.package;
           });
         });
 
