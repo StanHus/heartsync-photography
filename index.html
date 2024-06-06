@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: url("https://heartsync-photography.s3.eu-west-2.amazonaws.com/holding.jpg")
+          no-repeat center center/cover;
+      }
+      .content {
+        text-align: center;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        padding: 5%;
+        max-width: 90vw;
+        border: #000 2px solid;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 50px;
+      }
+      .content h1 {
+        font-size: min(4em, 10vw);
+        margin: 0;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+      }
+      .content h3 {
+        font-size: min(2.5em, 6vw);
+        margin: 0;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+      }
+      .content a {
+        color: #000;
+        text-decoration: none;
+        font-size: min(1.5em, 4vw);
+        margin-top: 20px;
+        display: inline-block;
+        border: 2px solid #fff;
+        background-color: #fff;
+        padding: 10px 20px;
+        transition: background 0.3s, color 0.3s;
+      }
+      .content a:hover {
+        background: #000;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="content">
+      <h1>Heartsync Photography</h1>
+      <h3>Coming soon</h3>
+      <a
+        href="https://www.instagram.com/heartsync.photography?igsh=MXZ6dXVrcHpsdjA5"
+        target="_blank"
+      >
+        Follow us on Instagram
+      </a>
+    </div>
+  </body>
+</html>
