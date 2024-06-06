@@ -1,0 +1,7 @@
+[build]
+  publish = "public" # Change this to the directory where your site is located, e.g., "." if it's in the root
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
